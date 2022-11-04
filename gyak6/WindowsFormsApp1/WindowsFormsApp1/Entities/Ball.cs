@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -20,7 +21,12 @@ namespace WindowsFormsApp1.Entities
 
         private void Ball_Paint(object sender, PaintEventArgs e)
         {
-            throw new NotImplementedException();
+            DrawImage(e.Graphics);
+        }
+
+        protected void DrawImage(Graphics g)
+        {
+            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
     }
 }
