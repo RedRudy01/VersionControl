@@ -6,10 +6,11 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Abstractions;
 
 namespace WindowsFormsApp1.Entities
 {
-    public class Ball: System.Windows.Forms.Label
+    public class Ball: Toy
     {
         public Ball()
         {
@@ -24,7 +25,7 @@ namespace WindowsFormsApp1.Entities
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics g)
+        protected override void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
