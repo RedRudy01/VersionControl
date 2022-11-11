@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
                 sw.Write("Időszak");
+                sw.Write(" ");
                 sw.Write("Nyereség");
                 int counter = 0;
                 foreach (var s in nyereségekRendezve)
