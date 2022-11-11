@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            Ticks = context.Ticks.Tolist();
+            dataGridView1.DataSource = Ticks;
         }
     }
 }
