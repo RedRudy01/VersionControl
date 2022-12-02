@@ -32,7 +32,7 @@ namespace gyak10_ED25OU
                 // Végigmegyünk az összes személyen
                 for (int i = 0; i < Population.Count; i++)
                 {
-                    // Ide jön a szimulációs lépés
+                    SimStep(year,person);
                 }
 
                 int nbrOfMales = (from x in Population
@@ -57,8 +57,8 @@ namespace gyak10_ED25OU
             // Halál kezelése
             // Halálozási valószínűség kikeresése
             double pDeath = (from x in DeathProbabilities
-                             where x.Gender == person.Gender && x.Age == age
-                             select x.P).FirstOrDefault();
+                             where x.gender == person.Gender && x.Age == age
+                             select x.DeathProb).FirstOrDefault();
             // Meghal a személy?
             if (rng.NextDouble() <= pDeath)
                 person.IsAlive = false;
@@ -69,7 +69,7 @@ namespace gyak10_ED25OU
                 //Szülési valószínűség kikeresése
                 double pBirth = (from x in BirthProbabilities
                                  where x.Age == age
-                                 select x.P).FirstOrDefault();
+                                 select x.BirthProb).FirstOrDefault();
                 //Születik gyermek?
                 if (rng.NextDouble() <= pBirth)
                 {
