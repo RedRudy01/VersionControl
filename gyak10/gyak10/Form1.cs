@@ -26,9 +26,21 @@ namespace gyak10
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
 
-            //gc.AddPlayer();
-            //gc.Start(true);
+            for (int i = 0; i < populationSize; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);
+            }
+            gc.Start();
+            gc.GameOver += Gc_GameOver;
 
+        }
+
+        private void Gc_GameOver(object sender)
+        {
+            generation++;
+            label1.Text = string.Format(
+                "{0}. generáció",
+                generation);
         }
     }
 }
